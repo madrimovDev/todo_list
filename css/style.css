@@ -67,6 +67,42 @@
   outline-offset: 2px;
 }
 
+.form-btn {
+  padding: 5px 10px;
+  background-color: rgb(43, 215, 175);
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 5px;
+  transition: 250ms;
+}
+.form-btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+.form-btn:active {
+  transform: none;
+}
+
 .todo-list {
   flex-grow: 8;
+  border: 1px solid red;
+}
+.todo-list__header {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 2px solid white;
+}
+.todo-list__span {
+  flex-grow: 1;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+.todo-list__span:last-child {
+  text-align: right;
 }/*# sourceMappingURL=style.css.map */
