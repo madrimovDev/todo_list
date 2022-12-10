@@ -96,3 +96,22 @@
         font-weight: 600;
     }
 }
+
+.todos{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__item{
+        background: white;
+        display: flex;
+        align-items: center;
+
+    }
+    &__span, &__actions{
+        flex-grow: 1;
+    }
+    &__actions{
+        text-align: right;
+    }
+}

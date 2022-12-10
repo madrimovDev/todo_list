@@ -105,4 +105,22 @@
 }
 .todo-list__span:last-child {
   text-align: right;
+}
+
+.todos {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.todos__item {
+  background: white;
+  display: flex;
+  align-items: center;
+}
+.todos__span, .todos__actions {
+  flex-grow: 1;
+}
+.todos__actions {
+  text-align: right;
 }/*# sourceMappingURL=style.css.map */
