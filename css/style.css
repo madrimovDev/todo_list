@@ -90,7 +90,6 @@
 
 .todo-list {
   flex-grow: 8;
-  border: 1px solid red;
 }
 .todo-list__header {
   display: flex;
@@ -117,10 +116,26 @@
   background: white;
   display: flex;
   align-items: center;
+  padding: 20px;
+  border-radius: 5px;
 }
 .todos__span, .todos__actions {
   flex-grow: 1;
 }
 .todos__actions {
   text-align: right;
+}
+.todos__action {
+  padding: 5px;
+  width: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+.todos__action:first-child {
+  background: rgb(222, 204, 38);
+}
+.todos__action:last-child {
+  background: rgb(230, 58, 58);
 }/*# sourceMappingURL=style.css.map */

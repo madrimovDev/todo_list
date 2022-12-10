@@ -80,8 +80,7 @@
 
 .todo-list{
     flex-grow: 8;
-    border: 1px solid red;
-    &__header{
+        &__header{
         display: flex;
         padding-bottom: 20px;
         border-bottom: 2px solid white
@@ -106,12 +105,27 @@
         background: white;
         display: flex;
         align-items: center;
-
+        padding: 20px;
+        border-radius: 5px;
     }
     &__span, &__actions{
         flex-grow: 1;
     }
     &__actions{
         text-align: right;
+    }
+    &__action{
+        padding: 5px;
+        width: 30px;
+        aspect-ratio: 1 / 1;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        &:first-child{
+            background: $warning;
+        }
+        &:last-child{
+            background: $error;
+        }
     }
 }
