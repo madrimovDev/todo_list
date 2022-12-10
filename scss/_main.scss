@@ -1,0 +1,61 @@
+.main{
+    height: 100vh;
+    overflow: hidden;
+    background-image: linear-gradient(90deg, $success 0%, $warning 150%);
+}
+
+.navbar{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 4px rgba(black, 0.1);
+    &-title{
+        font-size: 25px;
+        font-weight: 600;
+    }
+}
+
+.main-content{
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    gap: 100px;
+}
+
+.main-form{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 2;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(black, 0.1);
+}
+.form-input{
+    border: 1px solid rgba(black, 0.1);
+    padding:5px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    &:focus{
+        outline: 2px solid $success;
+        outline-offset: 2px;
+    }
+}
+
+.form-textarea{
+    resize: vertical;
+    min-height: 200px;
+    border: 1px solid rgba(black, 0.1);
+    padding:5px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    &:focus{
+        outline: 2px solid $success;
+        outline-offset: 2px;
+    }
+}
+
+.todo-list{
+    flex-grow: 8;
+}
