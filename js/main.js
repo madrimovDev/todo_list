@@ -27,3 +27,30 @@ window.addEventListener('load', async () => {
         createTodo(item)
     })
 })
+
+const form = document.querySelector('.main-form')
+const input = document.querySelector('.form-input')
+const textarea = document.querySelector('.form-textarea')
+
+form.addEventListener('submit', async (event) => {
+    event.preventDefault()
+
+    const title = input.value
+    const desc = textarea.value
+
+   const response = await fetch('http://localhost:3030/todos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify({
+            title,
+            desc
+        })
+    })
+
+    const result = await response.json()
+    createTodo(result.newTodo)
+    input.value = ''
+    textarea.value = ''
+})
