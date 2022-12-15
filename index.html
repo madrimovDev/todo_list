@@ -24,15 +24,22 @@
 				<button class="form-btn"><i class='bx bxs-save'></i> SAVE</button>
 			</form>
 
-			<div style="overflow-y: scroll;" class="todo-list">
+			<div class="todo-list">
 				<div class="todo-list__header">
 					<span class="todo-list__span">Title</span>
 					<span class="todo-list__span">Description</span>
 					<span class="todo-list__span">Actions</span>
 				</div>
 
-				<ul   class="todos">
-					
+				<ul class="todos">
+					<li class="todos__item">
+                        <span class="todos__span">${todo.title}</span>
+                        <span class="todos__span">${todo.desc}</span>
+                        <div class="todos__actions">
+                            <button class="todos__action"><i class='bx bxs-edit-alt'></i></button>
+                            <button class="todos__action"><i class='bx bxs-trash-alt'></i></button>
+                        </div>
+                    </li>
 				</ul>
 			</div>
 		</article>

@@ -1,56 +1,34 @@
-async function getTodos() {
-    const response = await fetch('http://localhost:3030/todos', {
-        method: 'GET'
-    })
-    const result = await response.json()
-    return result
+const todos = document.querySelector('.todos')
+
+function createElement(tagName, className){
+    const element = document.createElement(tagName)
+    element.className = className
+    return element
 }
 
-function createTodo(todo) {
-    const li = document.createElement('li')
-    li.className = 'todos_item'
-    li.innerHTML = `<li class="todos__item">
-                        <span class="todos__span">${todo.title}</span>
-                        <span class="todos__span">${todo.desc}</span>
-                        <div class="todos__actions">
-                            <button class="todos__action"><i class='bx bxs-edit-alt'></i></button>
-                            <button class="todos__action"><i class='bx bxs-trash-alt'></i></button>
-                        </div>
-                    </li>`
-    document.querySelector('.todos').appendChild(li)
+function createTodo(title, desc){
+    const li = createElement('li', 'todos__item')
+
+    const _title = createElement('span', 'todos__span')
+    _title.textContent = title
+
+    const _desc = createElement('span', 'todos__span')
+    _desc.textContent = desc
+
+    const actions = createElement('div', 'todos__actions')
+
+    const editBtn = createElement('button', 'todos__action')
+    editBtn.innerHTML = `<i class='bx bxs-edit-alt'></i>`
+
+    const deleteBtn = createElement('button', 'todos__action')
+    deleteBtn.innerHTML = `<i class='bx bxs-trash-alt'></i>`
+
+    actions.appendChild(editBtn)
+    actions.appendChild(deleteBtn)
+
+    li.appendChild(_title)
+    li.appendChild(_desc)
+    li.appendChild(actions)
+
+    return li
 }
-
-window.addEventListener('load', async () => {
-    console.log('loading')
-    let todos = await getTodos()
-    todos.forEach((item, index) => {
-        createTodo(item)
-    })
-})
-
-const form = document.querySelector('.main-form')
-const input = document.querySelector('.form-input')
-const textarea = document.querySelector('.form-textarea')
-
-form.addEventListener('submit', async (event) => {
-    event.preventDefault()
-
-    const title = input.value
-    const desc = textarea.value
-
-   const response = await fetch('http://localhost:3030/todos', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify({
-            title,
-            desc
-        })
-    })
-
-    const result = await response.json()
-    createTodo(result.newTodo)
-    input.value = ''
-    textarea.value = ''
-})
