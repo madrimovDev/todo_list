@@ -32,3 +32,21 @@ function createTodo(title, desc){
 
     return li
 }
+
+async function getTodos(){
+    const response = await fetch('http://localhost:3030/todos')
+    const result = await response.json()
+    console.log(result)
+    return result
+}
+
+window.addEventListener('DOMContentLoaded', async (event) => {
+   const todolist = await getTodos()
+   
+   todolist.forEach((item, index) => {
+    todos.appendChild(createTodo(item.title, item.desc))
+   })
+})
+
+// async 
+// sync

@@ -38,6 +38,8 @@ app.post('/todos', (req, res)=>{
 
     let { title, desc } = req.body
 
+    console.log(req.body)
+
     if(!title || !desc){
         res.status(400).send({
             msg: 'Title yoki description yo\'q'
