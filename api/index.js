@@ -60,18 +60,39 @@ app.delete('/todos/:id', (req, res) => {
         res.status(400).send({
             msg: 'Bad Request'
         })
-    }
-
-    todos = todos.filter((item, index) => {
-        if(item.id !== id){
-            return item
-        }
-    })
-
+    }    
+    let newArr = todos.filter((item, index) => item.id !== +id)
+    todos = newArr
     res.status(200).send({
         msg: 'Todo Deleted',
         todoId: id
     })
+})
+
+app.put('/todos/:id', (req, res) => {
+    let {id} = req.params
+    let {title, desc} = req.body
+
+    if(!id){
+        res.status(400).send({
+            msg: 'Bad Request'
+        })
+    }
+
+    todos = todos.map((item, index) => {
+        if(item.id === +id){
+            return {
+                id: item.id,
+                title,
+                desc
+            }
+        }else{
+            return item
+        }
+    })
+
+    res.status(200).send(todos)
+
 })
 
 app.listen(3030, () => {
