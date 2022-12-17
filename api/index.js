@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.json()) //
 app.use(express.urlencoded({extended: true}))
 
-const todos = [
+let todos = [
     {
         id: 1, 
         title: 'Todo Title',
@@ -35,17 +35,13 @@ app.get('/todos', (req, res) => {
 })
 
 app.post('/todos', (req, res)=>{
-
     let { title, desc } = req.body
-
     console.log(req.body)
-
     if(!title || !desc){
         res.status(400).send({
             msg: 'Title yoki description yo\'q'
         })
     }
-
     const newTodo = {
         id: Date.now(), 
         title: req.body.title,
@@ -54,6 +50,27 @@ app.post('/todos', (req, res)=>{
     todos.push(newTodo)
     res.send({
         newTodo
+    })
+})
+
+app.delete('/todos/:id', (req, res) => {
+    let { id } = req.params
+
+    if(!id){
+        res.status(400).send({
+            msg: 'Bad Request'
+        })
+    }
+
+    todos = todos.filter((item, index) => {
+        if(item.id !== id){
+            return item
+        }
+    })
+
+    res.status(200).send({
+        msg: 'Todo Deleted',
+        todoId: id
     })
 })
 
