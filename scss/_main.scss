@@ -18,6 +18,7 @@
     width: 80%;
     margin: 30px auto;
     display: flex;
+    align-items: flex-start;
     gap: 100px;
 }
 
@@ -79,6 +80,7 @@
 }
 
 .todo-list{
+    
     flex-grow: 8;
         &__header{
         display: flex;
@@ -97,6 +99,8 @@
 }
 
 .todos{
+    overflow-y: scroll;
+    height: 500px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
